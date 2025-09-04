@@ -1,0 +1,77 @@
+[#Part: CMP TallyShopFeatures Left]
+Add: Line  : Enable_Gridline  
+     
+[line : Enable_Gridline]
+Field : medium prompt, Enable_Gridline
+Local : field : medium prompt : set as : "GridLine in Invoice and Default Tally Report ?"
+Local : Field : Medium Prompt : width : 35
+Space Top:.2 cm
+	
+[field : Enable_Gridline]
+Use 	: Logical field
+Storage : Enable_Gridline
+      
+[System: udf]
+Enable_Gridline : Logical: 5255 
+	
+[System:Formulas]
+Enable_Gridline : $Enable_Gridline:Company:##SvCurrentCompany 
+
+[#Line: CI InvInfo]
+Switch:A1:TWS_Gridline_Switch : @@Enable_Gridline
+	
+[#Line: EI InvInfo]
+Switch:A1:TWS_Gridline_Switch : @@Enable_Gridline
+
+[#Line: DSP ColVchDetail]
+Switch:A1:TWS_Gridline_Switch : @@Enable_Gridline
+      
+[#Line: BSDetail]
+Switch:A1:TWS_Gridline_Switch : @@Enable_Gridline
+
+[#Line: BILL Detail]
+Switch:A1:TWS_Gridline_Switch : @@Enable_Gridline
+
+[#Line: DSP AccLine]
+Switch:A1:TWS_Gridline_Switch : @@Enable_Gridline
+    
+[#Line: STKVCH VchDetail]
+Switch:A1:TWS_Gridline_Switch : @@Enable_Gridline
+
+[#Line : DSP VchDetail]
+Switch:A1:TWS_Gridline_Switch : @@Enable_Gridline
+
+[#Line : CUR  MainLine]
+Switch:A1:TWS_Gridline_Switch : @@Enable_Gridline
+    
+[#Line   : STK AnalLine]
+Switch:A1:TWS_Gridline_Switch : @@Enable_Gridline
+	
+[#Line: StatDetail]
+Switch:A1:TWS_Gridline_Switch : @@Enable_Gridline
+
+[#Line: STATObjDetals]
+Switch:A1:TWS_Gridline_Switch : @@Enable_Gridline
+
+[#Line: PLDetail]
+Switch:A1:TWS_Gridline_Switch : @@Enable_Gridline
+		
+[!Line:TWS_Gridline_Switch]	
+Border  : TWS_GridlineBottom
+
+[Border: TWS_GridlineBottom]
+Bottom      : Thin
+Color		: Black
+	
+[#Line: EXPSMP InvDetails]
+Switch:A1:TWS_Gridline_Switch2 : @@Enable_Gridline
+	
+[#Line: EXPINV InvDetails]
+Switch:A1:TWS_Gridline_Switch2 : @@Enable_Gridline
+	
+[!Line:TWS_Gridline_Switch2]
+Border  : TWS_GridlineTop : $$Line > 1
+	
+[Border: TWS_GridlineTop]
+Top      : Thin
+Color	: Black

@@ -1,0 +1,118 @@
+{% extends "fileapp/base.html" %}
+{% load static %}
+{% block title %}Contact - TDL With Om{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success text-center" role="alert" data-aos="fade-down">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <h2 class="mb-4 text-center" data-aos="fade-up">Get In Touch</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8" data-aos="fade-up" data-aos-delay="200">
+            <div class="card shadow-sm p-4">
+
+
+
+                <!-- <form method="POST" action="{% url 'contact' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" placeholder="Type your message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-gradient w-100">Send Message</button>
+                </form> -->
+
+
+                <form method="POST" action="{% url 'contact' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" name="phone"
+                            placeholder="Enter your phone number" pattern="[0-9]{10}"
+                            title="Enter 10 digit phone number" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="5"
+                            placeholder="Type your message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-gradient w-100">Send Message</button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="row mt-5 text-center" data-aos="fade-up" data-aos-delay="400">
+        <div class="col-md-4 mb-3">
+            <i class="bi bi-geo-alt-fill display-4 text-primary mb-2"></i>
+            <p>Madhya Pradesh, India</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <i class="bi bi-envelope-fill display-4 text-success mb-2"></i>
+            <p>tdlwithom@gmail.com</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <i class="bi bi-telephone-fill display-4 text-warning mb-2"></i>
+            <p>7999202076</p>
+        </div>
+    </div>
+</section>
+
+<!-- Custom CSS -->
+<style>
+    .btn-gradient {
+        background: linear-gradient(45deg, #0d6efd, #6610f2);
+        color: #fff;
+        border: none;
+    }
+
+    .btn-gradient:hover {
+        background: linear-gradient(45deg, #6610f2, #0d6efd);
+        color: #fff;
+    }
+
+    .card {
+        border-radius: 15px;
+    }
+</style>
+
+{% endblock %}

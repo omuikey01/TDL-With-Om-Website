@@ -1,0 +1,116 @@
+[System:Formula]
+SmallSize:13
+NormalSize:14
+LargeSize:16
+SmallerSize:10
+ExtraLargeSize:22
+[System:Formulas]
+TWSChange_FontStyle:"Century Gothic"
+[#Style: Normal]
+Font : @@TWSChange_FontStyle
+[#Style: Normal Serif]
+Font : @@TWSChange_FontStyle
+[#Style: Smaller bold]
+Font : @@TWSChange_FontStyle
+[#Style: Normal Bold]
+Font : @@TWSChange_FontStyle
+[#Style: Normal Bold Italic]
+Font : @@TWSChange_FontStyle
+[#Style: Normal Italic]
+Font : @@TWSChange_FontStyle
+[#Style: Small]
+Font : @@TWSChange_FontStyle
+[#Style: Small Bold]
+Font : @@TWSChange_FontStyle
+[#Style: Tiny]
+Font : @@TWSChange_FontStyle
+[#Style: Tiny Italic]
+Font : @@TWSChange_FontStyle
+[#Style: Tiny Bold]
+Font : @@TWSChange_FontStyle
+[#Style: Mini]
+Font : @@TWSChange_FontStyle
+[#Style: Mini Bold]
+Font : @@TWSChange_FontStyle
+[#Style: Small Bold Italic]
+Font : @@TWSChange_FontStyle
+[#Style: Small Italic]
+Font : @@TWSChange_FontStyle
+[#Style: Large]
+Font : @@TWSChange_FontStyle
+[#Style: Large Bold]
+Font : @@TWSChange_FontStyle
+[#Style: Extra Large Bold]
+Font : @@TWSChange_FontStyle
+[#Style: Large Bold Italic]
+Font : @@TWSChange_FontStyle
+[#Style: Large Italic]
+Font : @@TWSChange_FontStyle
+[#Style: Normal Serif Bold]
+Font : @@TWSChange_FontStyle
+[#Style: Small Serif]
+Font : @@TWSChange_FontStyle
+[#Style: Small Serif Bold]
+Font : @@TWSChange_FontStyle
+[#Style: Small Serif Italic]
+Font : @@TWSChange_FontStyle
+[#Style: Large Serif]
+Font : @@TWSChange_FontStyle
+[#Style: Large Serif Bold]
+Font : @@TWSChange_FontStyle
+[#Style : Verdana Bold]
+Font : @@TWSChange_FontStyle
+[#Style : Verdana Normal]
+Font : @@TWSChange_FontStyle
+[#Style : Verdana Italic]
+Font : @@TWSChange_FontStyle
+[#Style: Smaller]
+Font : @@TWSChange_FontStyle
+[#Style: Normal Serif Bold Italic]
+Font : @@TWSChange_FontStyle
+[#Style: Normal Serif Italic]
+Font : @@TWSChange_FontStyle
+[#Style: Small Serif Bold Italic]
+Font : @@TWSChange_FontStyle
+[#Style: Large Serif Bold Italic]
+Font : @@TWSChange_FontStyle
+[#Style: Large Serif Italic]
+Font : @@TWSChange_FontStyle
+[#Style : Verdana Bold Italic]
+Font : @@TWSChange_FontStyle
+[#Style : Book Antiqua Normal]
+Font : @@TWSChange_FontStyle
+[#Style : Book Antiqua Bold]
+Font : @@TWSChange_FontStyle
+[#Style : Book Antiqua Italic]
+Font : @@TWSChange_FontStyle
+[#Style : Courier New Normal]
+Font : @@TWSChange_FontStyle
+[#Style : Courier New Bold]
+Font : @@TWSChange_FontStyle
+[#Style : Courier New Italic]
+Font : @@TWSChange_FontStyle
+[#Style: Audited Italic Style]
+Font : @@TWSChange_FontStyle
+[#Style: Calibri Small Italic]
+Font : @@TWSChange_FontStyle
+[#Style: Calibri Default Bold]
+Font : @@TWSChange_FontStyle
+[#Style: Calibri Large]
+Font : @@TWSChange_FontStyle
+[#Style: Calibri Large Bold]
+Font : @@TWSChange_FontStyle
+[#Style: Arial Larger Bold]
+Font : @@TWSChange_FontStyle
+[#Style: Indent]
+Font : @@TWSChange_FontStyle
+[#Style: Calibri Default]
+Font : @@TWSChange_FontStyle
+[#Style: Calibri Large Italic]
+Font : @@TWSChange_FontStyle
+[#Style: Calibri Small]
+Font : @@TWSChange_FontStyle
+[#Style: Calibri Small Bold]
+Font : @@TWSChange_FontStyle
+[#Style: Calibri Large Bold Italic]
+Font : @@TWSChange_FontStyle

@@ -1,0 +1,124 @@
+{% extends "fileapp/base.html" %}
+{% load static %}
+{% block title %}Home - TDL With Om{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-center justify-content-center text-center" style="height: 90vh; background: url('https://via.placeholder.com/1920x800') center/cover no-repeat; position: relative;">
+    <div class="overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6);"></div>
+    <div class="hero-content text-white" style="position: relative; z-index:2;">
+        <h1 class="display-3 fw-bold mb-3" data-aos="fade-down">TDL With Om</h1>
+        <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">High-quality TDL modules, Tally customization, and Python/Django solutions</p>
+        <a href="/tdls/" class="btn btn-gradient btn-lg me-3" data-aos="zoom-in" data-aos-delay="400">View TDLs</a>
+        <a href="/about/" class="btn btn-outline-light btn-lg" data-aos="zoom-in" data-aos-delay="600">Learn More</a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="container my-5">
+    <div class="row align-items-center">
+        <!-- Left Text -->
+        <div class="col-md-6 mb-4" data-aos="fade-right">
+            <h2>About TDL With Om</h2>
+            <p>We specialize in Tally Prime customization, TDL development, and Django/Python solutions.
+               Our goal is to provide efficient, ready-to-use modules and add-ons for businesses.</p>
+            <p>Our TDL modules help track sales, manage stock, and generate detailed reports effortlessly.</p>
+            <a href="/about/" class="btn btn-primary mt-2" data-aos="fade-up" data-aos-delay="200">Learn More</a>
+        </div>
+
+        <!-- Right Image -->
+        <div class="col-md-6" data-aos="fade-left" data-aos-delay="300">
+            <img src="{% static 'fileapp/images/ME.png' %}" class="img-fluid rounded shadow" alt="TDL With Om">
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="bg-light py-5">
+    <div class="container">
+        <h2 class="mb-4 text-center" data-aos="fade-up">Our Services</h2>
+        <div class="row g-4 text-center">
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card h-100 shadow-sm service-card p-4">
+                    <i class="bi bi-gear-fill display-4 mb-3 text-primary"></i>
+                    <h5 class="card-title">Tally Customization</h5>
+                    <p class="card-text">Modify Tally Prime to match your business workflow and automate reports.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card h-100 shadow-sm service-card p-4">
+                    <i class="bi bi-file-earmark-text-fill display-4 mb-3 text-success"></i>
+                    <h5 class="card-title">TDL Development</h5>
+                    <p class="card-text">Develop powerful TDL add-ons to extend Tally Prime functionality.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="card h-100 shadow-sm service-card p-4">
+                    <i class="bi bi-code-slash display-4 mb-3 text-warning"></i>
+                    <h5 class="card-title">Django & Python Projects</h5>
+                    <p class="card-text">Web development, dashboards, and automation tools for seamless business operations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured TDLs Section -->
+<section class="container my-5">
+    <h2 class="mb-4 text-center" data-aos="fade-up">Featured TDLs</h2>
+    <div class="row g-4">
+        {% for file in tdl_files|slice:":3" %}
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:'100' }}">
+            <div class="card h-100 shadow-sm tdl-card">
+                {% if file.image %}
+                <img src="{{ file.image.url }}" class="card-img-top" alt="{{ file.title }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ file.title }}</h5>
+                    <div class="card-text description-box">
+                        {{ file.description }}
+                    </div>
+                    <a href="{% url 'file_detail' file.pk %}" class="btn btn-primary mt-2">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No TDL files uploaded yet.</p>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Custom CSS -->
+<style>
+.hero-section h1 {
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+.hero-section p.lead {
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
+.btn-gradient {
+    background: linear-gradient(45deg, #0d6efd, #6610f2);
+    color: #fff;
+    border: none;
+}
+.btn-gradient:hover {
+    background: linear-gradient(45deg, #6610f2, #0d6efd);
+    color: #fff;
+}
+.service-card:hover, .tdl-card:hover {
+    transform: translateY(-8px);
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.description-box {
+    height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+</style>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "fileapp/base.html" %}
+{% block title %}{{ file.title }} - My Django Site{% endblock %}
+
+{% block content %}
+<div class="card mb-3 mx-auto" style="max-width:600px;">
+  {% if file.image %}
+    <img src="{{ file.image.url }}" class="card-img-top" alt="{{ file.title }}">
+  {% endif %}
+  <div class="card-body">
+    <h3 class="card-title">{{ file.title }}</h3>
+    <p class="card-text">{{ file.description }}</p>
+    <p class="text-muted">Uploaded: {{ file.uploaded_at|date:"M d, Y" }}</p>
+    <a href="{{ file.file.url }}" class="btn btn-primary" download>Download File</a>
+  </div>
+</div>
+{% endblock %}

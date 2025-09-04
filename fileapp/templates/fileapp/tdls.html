@@ -1,0 +1,58 @@
+{% extends "fileapp/base.html" %}
+{% load static %}
+{% block title %}TDLs - TDL With Om{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+    <h2 class="mb-5 text-center" data-aos="fade-up">Our TDL Modules</h2>
+
+    <div class="row g-4">
+        {% for file in tdl_files %}
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:'100' }}">
+            <div class="card h-100 shadow-sm tdl-card">
+                {% if file.image %}
+                <img src="{{ file.image.url }}" class="card-img-top" alt="{{ file.title }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ file.title }}</h5>
+                    <div class="card-text description-box">
+                        {{ file.description }}
+                    </div>
+                    <a href="{{ file.file.url }}" class="btn btn-gradient mt-2" download>Download</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No TDL files uploaded yet.</p>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Custom CSS -->
+<style>
+.tdl-card:hover {
+    transform: translateY(-8px);
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.description-box {
+    height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+.btn-gradient {
+    background: linear-gradient(45deg, #0d6efd, #6610f2);
+    color: #fff;
+    border: none;
+}
+.btn-gradient:hover {
+    background: linear-gradient(45deg, #6610f2, #0d6efd);
+    color: #fff;
+}
+</style>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+[#Part: CMP TallyShopFeatures Left]
+add : line : EnableNegativestockcontrol
+[Line: EnableNegativestockcontrol]
+Fields : Medium Prompt, EnableNegativestockcontrol
+Local : Field : Medium Prompt : Info : "Enable Negative stock control ?"
+Local : Field : Medium Prompt : width 	: 35
+space top: .2 cm
+[Field: EnableNegativestockcontrol]
+Use: logical field
+Storage: negativestockcontrol
+[System:UDF]
+negativestockcontrol : Logical: 13
+[System: formula]
+EnableNegStk :$negativestockcontrol:Company:##SvCurrentCompany		
+Disable_negativestockcontrol:$negativestockcontrol:voucherType:##SVVoucherType
+[System : Formula]
+vchStkcontrol:NOT $IsOptional AND $$IsNegative:@@FinalStockTotal
+[#Part: VTYPMainLeft]
+add :Parts:AtEnd:vnegativestockcontrol
+[Part: vnegativestockcontrol]
+Line: vnegativestockcontrol
+Local: Field	: LongPrompt: Width	: @@LongWidth + 5
+[Line: vnegativestockcontrol]
+Space Top: 2 mm
+Field: Long prompt,vnegativestockcontrol
+Local: Field: Long prompt : Set as: "Disable Negative Stock Control ?"	
+Invisible: not @@EnableNegStk
+[Field: vnegativestockcontrol]
+Use: logical field
+Storage: negativestockcontrol
+[#Field: VCH BilledQty]
+Option: negativestockcontrol VCHBilledQty : @@EnableNegStk and NOT @@Disable_negativestockcontrol
+[!Field: negativestockcontrol VCHBilledQty] 
+Control : NegativeStock : @@vchStkcontrol 
+[#Field: VCHBATCH BilledQty]
+Option: negativestockcontrol VCHBATCH : @@EnableNegStk and NOT @@Disable_negativestockcontrol
+[!Field: negativestockcontrol VCHBATCH] 
+Control : NegativeStock :  @@vchStkcontrol 
+Notify  : NegativeStock : @@InvoiceInCreate AND $$IsNegative:@@FinalStockTotal AND NOT ($DiffActualQty AND $$IsEqual:$$Value:$ActualQty AND NOT $$IsFieldEdited)
+[#Field: VCHSTKJrnl BilledQty]
+Option: negativestockcontrol BilledQty : @@EnableNegStk and NOT @@Disable_negativestockcontrol
+[!Field: negativestockcontrol BilledQty] 
+Control : NegativeStock : @@vchStkcontrol
+[#Field: VCH JrnlBilledQty]
+Option: negativestockcontrolJrnlBilledQty : @@EnableNegStk and NOT @@Disable_negativestockcontrol
+[!Field: negativestockcontrolJrnlBilledQty] 
+Control : NegativeStock : @@vchStkcontrol

@@ -1,0 +1,48 @@
+{% extends "fileapp/base.html" %}
+{% block title %}Files - My Django Site{% endblock %}
+{% block content %}
+  <h2 class="mb-3">Upload a File</h2>
+  <form method="POST" enctype="multipart/form-data" class="mb-4">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      {{ form.title }}
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      {{ form.description }}
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Image</label>
+      {{ form.image }}
+    </div>
+    <div class="mb-3">
+      <label class="form-label">File</label>
+      {{ form.file }}
+    </div>
+    <button class="btn btn-primary" type="submit">Upload</button>
+  </form>
+
+  <h2 class="mb-3">Available Files</h2>
+  <div class="row">
+    {% for f in files %}
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          {% if f.image %}
+            <img src="{{ f.image.url }}" class="card-img-top" alt="{{ f.title }}">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ f.title }}</h5>
+            <p class="card-text">{{ f.description|default:"No description" }}</p>
+            <a href="{{ f.file.url }}" class="btn btn-outline-primary" download>Download</a>
+          </div>
+          <div class="card-footer text-muted">
+            Uploaded: {{ f.uploaded_at|date:"M d, Y H:i" }}
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p>No files uploaded yet.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "fileapp/base.html" %}
+{% load static %}
+{% block title %}Services - TDL With Om{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-section text-center d-flex align-items-center justify-content-center" 
+         style="height: 50vh; background: url('https://via.placeholder.com/1920x500') center/cover no-repeat; position: relative;">
+    <div class="overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.5);"></div>
+    <div class="hero-content text-white" style="position: relative; z-index:2;">
+        <h1 class="display-4 fw-bold" data-aos="fade-down">Our Services</h1>
+        <p class="lead" data-aos="fade-up" data-aos-delay="200">Providing TDL modules, Tally customization, and Python/Django solutions for businesses</p>
+    </div>
+</section>
+
+<!-- Services Cards Section -->
+<section class="container py-5">
+    <h2 class="mb-4 text-center" data-aos="fade-up">What We Offer</h2>
+    <div class="row g-4 text-center">
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="card h-100 shadow-sm p-4 service-card">
+                <i class="bi bi-gear-fill display-4 mb-3 text-primary"></i>
+                <h5 class="card-title">Tally Customization</h5>
+                <p class="card-text">Modify Tally Prime to match your business workflow and automate processes efficiently.</p>
+            </div>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="card h-100 shadow-sm p-4 service-card">
+                <i class="bi bi-file-earmark-text-fill display-4 mb-3 text-success"></i>
+                <h5 class="card-title">TDL Development</h5>
+                <p class="card-text">Develop TDL add-ons to enhance Tally Prime functionality and save time for businesses.</p>
+            </div>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="card h-100 shadow-sm p-4 service-card">
+                <i class="bi bi-code-slash display-4 mb-3 text-warning"></i>
+                <h5 class="card-title">Django & Python Projects</h5>
+                <p class="card-text">Web development, dashboards, and automation tools to streamline business operations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Custom CSS -->
+<style>
+.hero-section h1 {
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+.hero-section p.lead {
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
+.service-card:hover {
+    transform: translateY(-8px);
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+</style>
+
+{% endblock %}
